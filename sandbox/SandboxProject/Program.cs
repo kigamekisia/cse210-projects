@@ -20,11 +20,11 @@ namespace Sandbox
             int win = 0;
 
             do {
+                Console.WriteLine("Welcome to the Tic-Tac-Toe game");
                 displayBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox);
 
                 Console.Write ("x's turn to choose a square (1-9): ");
                 string playerInput = Console.ReadLine();
-                Console.WriteLine (" ");
 
                 if (playerInput == "1") {
                     firstBox = "x";
@@ -92,7 +92,6 @@ namespace Sandbox
 
                 Console.Write ("o's turn to choose a square (1-9): ");
                 string player2Input = Console.ReadLine();
-                Console.WriteLine (" ");
 
                 if (player2Input == "1") {
                     firstBox = "o";
@@ -163,13 +162,11 @@ namespace Sandbox
             Console.WriteLine($"{fourthBox}|{fifthBox}|{sixthBox}");
             Console.WriteLine("-+-+-");
             Console.WriteLine($"{seventhBox}|{eighthBox}|{ninethBox}");
-            Console.WriteLine (" ");
+            
         }
         static void winBoard(string firstBox, string secondBox, string thirdBox, string fourthBox, string fifthBox, string sixthBox, string seventhBox, string eighthBox, string ninethBox, int win){
             displayBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox);
             Console.WriteLine("Thank you for playing. Goodbye!");
-            
-            win++;
         }
     
     }

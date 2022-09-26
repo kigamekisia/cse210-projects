@@ -1,7 +1,6 @@
 ﻿//Tic-Tac-Toe
 //Author: Kigame Kisia
 using System;
-using System.Collections.Generic;
 
 namespace Sandbox
 {
@@ -9,107 +8,169 @@ namespace Sandbox
     {
         static void Main(string[] args)
         {
-            List<string> board = CreateBoard();
-            string PlayLetter = "x";
+            string firstBox = "1";
+            string secondBox = "2";
+            string thirdBox = "3";
+            string fourthBox = "4";
+            string fifthBox = "5";
+            string sixthBox = "6";
+            string seventhBox = "7";
+            string eighthBox = "8";
+            string ninethBox= "9";
+            int win = 0;
 
-            while (!EndGame(board))
-            {
-                DisplayBoard(board);
+            do {
+                displayBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox);
 
-                int choice = Choice(PlayLetter);
-                Move(board, choice, PlayLetter);
+                Console.Write ("x's turn to choose a square (1-9): ");
+                string playerInput = Console.ReadLine();
+                Console.WriteLine (" ");
 
-                PlayLetter = NextToPlay(PlayLetter);
-            }
+                if (playerInput == "1") {
+                    firstBox = "x";
+                }
+                else if (playerInput == "2") {
+                    secondBox = "x";
+                }
+                else if (playerInput == "3") {
+                    thirdBox = "x";
+                }
+                else if (playerInput == "4") {
+                    fourthBox = "x";
+                }
+                else if (playerInput == "5") {
+                    fifthBox = "x";
+                }
+                else if (playerInput == "6") {
+                    sixthBox = "x";
+                }
+                else if (playerInput == "7") {
+                    seventhBox= "x";
+                }
+                else if (playerInput == "8") {
+                    eighthBox = "x";
+                }
+                else if (playerInput == "9") {
+                    ninethBox = "x";
+                }
 
-            DisplayBoard(board);
+                if (firstBox == "x" && fourthBox == "x" && seventhBox == "x"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (firstBox == "x" && secondBox == "x" && thirdBox == "x"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (firstBox == "x" && fifthBox == "x" && ninethBox == "x"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    
+                    break;
+                }
+                else if (secondBox == "x" && fifthBox == "x" && eighthBox == "x"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (thirdBox == "x" && sixthBox == "x" && ninethBox == "x"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (thirdBox == "x" && fifthBox == "x" && seventhBox == "x"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (fourthBox == "x" && fifthBox == "x" && sixthBox == "x"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (seventhBox == "x" && eighthBox == "x" && ninethBox == "x"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+
+                displayBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox);
+
+                Console.Write ("o's turn to choose a square (1-9): ");
+                string player2Input = Console.ReadLine();
+                Console.WriteLine (" ");
+
+                if (player2Input == "1") {
+                    firstBox = "o";
+                }
+                else if (player2Input == "2") {
+                    secondBox = "o";
+                }
+                else if (player2Input == "3") {
+                    thirdBox = "o";
+                }
+                else if (player2Input == "4") {
+                    fourthBox = "o";
+                }
+                else if (player2Input == "5") {
+                    fifthBox= "o";
+                }
+                else if (player2Input == "6") {
+                    sixthBox = "o";
+                }
+                else if (player2Input == "7") {
+                    seventhBox = "o";
+                }
+                else if (player2Input == "8") {
+                    eighthBox = "o";
+                }
+                else if (player2Input == "9") {
+                    ninethBox = "o";
+                }
+
+                if (firstBox == "o" && fifthBox == "o" && seventhBox == "o"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (firstBox == "o" && secondBox == "o" && thirdBox == "o"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (firstBox == "o" && fifthBox == "o" && ninethBox == "o"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (secondBox == "o" && fifthBox == "o" && eighthBox == "o"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (thirdBox == "o" && sixthBox == "o" && ninethBox == "o"){           
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (thirdBox == "o" && fifthBox == "o" && seventhBox == "o"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (fourthBox == "o" && fifthBox== "o" && sixthBox == "o"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+                else if (seventhBox == "o" && eighthBox == "o" && ninethBox == "o"){
+                    winBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox, win);
+                    break;
+                }
+            } while (win != 1);
+        }
+
+        static void displayBoard(string firstBox, string secondBox, string thirdBox, string fourthBox, string fifthBox, string sixthBox, string seventhBox, string eighthBox, string ninethBox){
+            Console.WriteLine($"{firstBox}|{secondBox}|{thirdBox}");
+            Console.WriteLine("-+-+-");
+            Console.WriteLine($"{fourthBox}|{fifthBox}|{sixthBox}");
+            Console.WriteLine("-+-+-");
+            Console.WriteLine($"{seventhBox}|{eighthBox}|{ninethBox}");
+            Console.WriteLine (" ");
+        }
+        static void winBoard(string firstBox, string secondBox, string thirdBox, string fourthBox, string fifthBox, string sixthBox, string seventhBox, string eighthBox, string ninethBox, int win){
+            displayBoard(firstBox, secondBox, thirdBox, fourthBox, fifthBox, sixthBox, seventhBox, eighthBox, ninethBox);
             Console.WriteLine("Thank you for playing. Goodbye!");
+            
+            win++;
         }
-
-        
-        static List<string> CreateBoard()
-        {
-            List<string> board = new List<string>();
-
-            for (int i = 1; i <= 9; i++)
-            {
-                board.Add(i.ToString());
-            }
-
-            return board;
-        }
-
-        static void DisplayBoard(List<string> board)
-        {
-
-            Console.WriteLine($"{board[0]}|{board[1]}|{board[2]}");
-            Console.WriteLine("-+-+-");
-            Console.WriteLine($"{board[3]}|{board[4]}|{board[5]}");
-            Console.WriteLine("-+-+-");
-            Console.WriteLine($"{board[6]}|{board[7]}|{board[8]}");
-        }
-
-        static bool EndGame(List<string> board)
-        {
-            bool EndGame = false;
-
-            if (Winner(board, "x") || Winner(board, "o"))
-            {
-                EndGame = true;
-            }
-
-            return EndGame;
-        }
-
-        static bool Winner(List<string> board, string player)
-        {
-            bool Winner = false;
-
-            if ((board[0] == player && board[1] == player && board[2] == player)
-                || (board[3] == player && board[4] == player && board[5] == player)
-                || (board[6] == player && board[7] == player && board[8] == player)
-                || (board[0] == player && board[3] == player && board[6] == player)
-                || (board[1] == player && board[4] == player && board[7] == player)
-                || (board[2] == player && board[5] == player && board[8] == player)
-                || (board[0] == player && board[4] == player && board[8] == player)
-                || (board[2] == player && board[4] == player && board[6] == player)
-                )
-            {
-                Winner = true;
-            }
-
-            return Winner; 
-        }
-
-        
-        static string NextToPlay(string currentPlayer)
-        {
-            string nextToPlay = "x";
-
-            if (currentPlayer == "x")
-            {
-                nextToPlay = "o";
-            }
-
-            return nextToPlay;
-        }
-
-        
-        static int Choice(string PlayerMark)
-        {
-            Console.Write($"{PlayerMark}'s turn to choose a square (1-9): ");
-            string move_string = Console.ReadLine();
-
-            int choice = int.Parse(move_string);
-            return choice;
-        }
-
-        
-        static void Move(List<string> board, int choice, string currentPlayer)
-        {
-            int index = choice - 1;
-
-            board[index] = currentPlayer;
-        }
+    
     }
 }

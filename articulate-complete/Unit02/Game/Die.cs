@@ -17,7 +17,7 @@ namespace Unit02.Game
         /// <summary>
         /// Constructs a new instance of Die.
         /// </summary>
-        public Die()
+        public Die() 
         {
         }
 

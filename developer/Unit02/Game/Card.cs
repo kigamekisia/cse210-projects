@@ -36,18 +36,6 @@ namespace Unit02.Game
         {
             Random random = new Random();
             _value = random.Next(1, 14);
-            if (_value == 0)
-            {
-                _points = 300;
-            }
-            else if (_value == 1)
-            {
-                _points = 100;
-            }
-            else
-            {
-                _points = 0;
-            }
         }
     }    
 }

@@ -49,7 +49,7 @@ namespace Unit02.Game
         }
 
         /// <summary>
-        /// Asks the user if they want to roll.
+        /// Gets input from the user.
         /// </summary>
         public string GetInputs()
         {
@@ -117,7 +117,7 @@ namespace Unit02.Game
         }
 
         /// <summary>
-        /// Displays the dice and the score. Also asks the player if they want to roll again. 
+        /// Displays the card and score. 
         /// </summary>
         public void DoOutputs()
         {

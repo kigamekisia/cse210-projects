@@ -1,9 +1,7 @@
-# Dice
-Are you willing to risk everything? Play Dice and you might be 
-surprised. The rules are simple. Roll the dice. Count the ones and 
-fives. Each one is worth 100 and 50 points respectively. As long as 
-you roll at least a one or a five you can try again. If not the game 
-is over.
+# Hilo
+Hilo is a game in which the player guesses if the next card 
+drawn by the dealer will be higher or lower than the previous one.
+Points are won or lost based on whether or not the player guessed correctly.
 
 ## Getting Started
 ---

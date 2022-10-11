@@ -4,14 +4,14 @@ using System;
 namespace Unit02.Game
 {   
     
-    // TODO: Implement the Die class as follows...
+    // TODO: Implement the Card class as follows...
     // 1) Add the class declaration. Use the following class comment.
 
         /// <summary>
-        /// A small cube with a different number of spots on each of its six sides.
+        /// A Card with values between 1-13.
         /// 
-        /// The responsibility of Die is to keep track of its currently rolled value and the points its
-        /// worth.
+        /// The responsibility of Card is to keep track of its currently drawn value 
+        /// 
         /// </summary> 
     public class Card
     {
@@ -19,18 +19,17 @@ namespace Unit02.Game
     // 2) Create the class constructor. Use the following method comment.
 
         /// <summary>
-        /// Constructs a new instance of Die.
+        /// Constructs a new instance of Card.
         /// </summary>
         public Card()
         {
 
         }
     
-    // 3) Create the Roll() method. Use the following method comment.
+    // 3) Create the Draw() method. Use the following method comment.
         
         /// <summary>
-        /// Generates a new random value and calculates the points for the die. Fives are 
-        /// worth 50 points, ones are worth 100 points, everything else is worth 0 points.
+        /// Generates a new random value. 
         /// </summary>
         public void Draw()
         {

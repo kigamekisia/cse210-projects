@@ -9,22 +9,22 @@ namespace Unit03.Game
 
         List<string> _word;
 
-        //create array of words to guess
+        //create a list of words
         public Word()
         {
-            _word = new List<string>{"encapsulation", "program", "class", "game", 
-                                    "code", "jumper", "random", "terminal"};
+            _word = new List<string>{"encapsulation", "mormon", "alma", "game", 
+                                    "temple", "jumper", "random", "moses"};
 
         }
 
         //randomly chooses a word
         public string GetRandomWord()
                 {
-                    Random _randWord = new Random();
-                    int index = _randWord.Next(_word.Count);
-                    var _displayWord = _word[index];
+                    Random randomWord = new Random();
+                    int index = randomWord.Next(_word.Count);
+                    var displayWord = _word[index];
                 
-                    return _displayWord;
+                    return displayWord;
                 }
     }
 }

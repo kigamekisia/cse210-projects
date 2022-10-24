@@ -22,7 +22,7 @@ namespace Unit03.Game
             return Console.ReadLine();
         }
 
-        /// Displays the given text on the terminal. 
+        /// Displays text on the terminal. 
         public void WriteText(string text)
         {
             Console.WriteLine(text);

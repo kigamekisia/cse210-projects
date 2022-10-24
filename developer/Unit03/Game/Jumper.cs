@@ -6,17 +6,17 @@ namespace Unit03.Game
     public class Jumper
     {
 
-        int parachuteLives;
+        int parachuteUpdates;
 
-        ///stores lives
+        //store
         public Jumper()
         {
-            parachuteLives = 4;
+            parachuteUpdates = 4;
         }
 
-        public bool CheckAlive()
+        public bool CheckUpdate()
         {
-            if (parachuteLives == 0)
+            if (parachuteUpdates == 0)
             {
                 return false;
             }
@@ -27,16 +27,16 @@ namespace Unit03.Game
 
         }
 
-        ///updates lives for each time the user does not guess correctly
-        public void UpdateLives()
+        ///updates wrong guess 
+        public void theUpdates()
         {
-            parachuteLives -= 1;
+            parachuteUpdates -= 1;
         }
 
-        ///Takes the variable parachutelives to display it in the director class
-        public int GetParachuteLives()
+        ///For display in the director class
+        public int GetParachuteUpdates()
         {
-            return parachuteLives;
+            return parachuteUpdates;
         }
 
         ///Prints parachute board
@@ -44,8 +44,8 @@ namespace Unit03.Game
         public void PrintJumper()
         {
             PrintParachute();
-            bool isAlive = CheckAlive();
-            if (isAlive)
+            bool proc = CheckUpdate();
+            if (proc)
             {
                 Console.WriteLine("   o");
             }
@@ -60,26 +60,26 @@ namespace Unit03.Game
 
         public void PrintParachute()
         {
-            int lives = GetParachuteLives();
-            if (lives == 4)
+            int updtes = GetParachuteUpdates();
+            if (updtes == 4)
             {
                 Console.WriteLine("  ___");
                 Console.WriteLine(" /   \\");
                 Console.WriteLine(" \\   /");
                 Console.WriteLine("  \\ /");
             }
-            else if (lives == 3)
+            else if (updtes == 3)
             {
                 Console.WriteLine(" /   \\");
                 Console.WriteLine(" \\   /");
                 Console.WriteLine("  \\ /");
             }
-            else if (lives == 2)
+            else if (updtes == 2)
             {
                 Console.WriteLine(" \\   /");
                 Console.WriteLine("  \\ /");
             }
-            else if (lives == 1)
+            else if (updtes == 1)
             {
                 Console.WriteLine("  \\ /");
             }

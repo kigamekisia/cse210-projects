@@ -5,7 +5,7 @@ namespace Unit03.Game
 {
 
     /// <summary>
-    /// The responsibility of a Director will be control the sequence of play.
+    /// The responsibility of the Director is to control the sequence of the game.
     /// </summary>
 
     public class Director
@@ -14,29 +14,29 @@ namespace Unit03.Game
         TerminalService terminal = new TerminalService();
         Jumper jumper = new Jumper();
         private bool _isPlaying;
-        private string _secretWord;
-        private string _userGuesses;
-        private string _currentGuess;
-        private string _printableWord;
+        private string secretWord;
+        private string userGuess;
+        private string currentGuess;
+        private string theWord;
 
 
         public Director()
         {
             _isPlaying = true;
-            _secretWord = word.GetRandomWord();
-            _userGuesses = "";
+            secretWord = word.GetRandomWord();
+            userGuess = "";
             
-            for (int i = 0; i < _secretWord.Length; i++)
+            for (int i = 0; i < secretWord.Length; i++)
             {
-                _userGuesses += "_";
+                userGuess += "_";
             }
-            _printableWord = _userGuesses;
+            theWord = userGuess;
         }
 
-        //Starts the game by running the main game loop and print the jumper board.
+        //Starts the game by running the main game loop.
         public void StartGame()
         {
-            PrintUserGuesses();
+            displayUserGuess();
             jumper.PrintJumper();
 
             while (_isPlaying)
@@ -51,33 +51,33 @@ namespace Unit03.Game
         // Asks the user to guess a letter.
         private void GetInputs()
         {
-            _currentGuess = terminal.GetInput("Guess a letter [a-z]: ");
+            currentGuess = terminal.GetInput("Guess a letter [a-z]: ");
         }
 
 
-        // Updates the users guesses.
+        // Updates the users guess.
         private void DoUpdates()
         {
             
-            if (_secretWord.Contains(_currentGuess))
+            if (secretWord.Contains(currentGuess))
             {
-                _printableWord = "";
-                for (int i = 0; i < _secretWord.Length; i++)
+                theWord = "";
+                for (int i = 0; i < secretWord.Length; i++)
                 {
-                    if(_secretWord[i] == _currentGuess[0])
+                    if(secretWord[i] == currentGuess[0])
                     {
-                        _printableWord += _currentGuess;
+                        theWord += currentGuess;
                     }
                     else
                     {
-                        _printableWord += _userGuesses[i];
+                        theWord += userGuess[i];
                     }
                 }
-                _userGuesses  = _printableWord;
+                userGuess  = theWord;
             }
             else 
             {
-                jumper.UpdateLives();
+                jumper.theUpdates();
             }
         }
 
@@ -85,21 +85,21 @@ namespace Unit03.Game
 
         private void DoOutputs()
         {
-            PrintUserGuesses();
+            displayUserGuess();
             jumper.PrintJumper();
-            _isPlaying = jumper.CheckAlive();
-            if (_printableWord == _secretWord)
+            _isPlaying = jumper.CheckUpdate();
+            if (theWord == secretWord)
             {
                 _isPlaying = false;
             }
         }
 
-        private void PrintUserGuesses()
+        private void displayUserGuess()
         {
             Console.WriteLine("\n");
-            for (int i = 0; i < _printableWord.Length; i++)
+            for (int i = 0; i < theWord.Length; i++)
             {
-                Console.Write($"{_printableWord[i]} ");
+                Console.Write($"{theWord[i]} ");
             }
             Console.WriteLine("\n");
         }

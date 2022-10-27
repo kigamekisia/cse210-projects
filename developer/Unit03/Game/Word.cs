@@ -13,7 +13,7 @@ namespace Unit03.Game
         public Word()
         {
             _word = new List<string>{"encapsulation", "mormon", "alma", "game", 
-                                    "temple", "jumper", "random", "moses"};
+                                    "church", "jumper", "random", "moses"};
 
         }
 

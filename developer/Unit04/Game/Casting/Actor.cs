@@ -4,9 +4,9 @@ using System;
 namespace Unit04.Game.Casting
 {
     /// <summary>
-    /// <para>A thing that participates in the game.</para>
+    
     /// <para>
-    /// The responsibility of Actor is to keep track of its appearance, position and velocity in 2d 
+    /// The responsibility of Actor is to keep track of its appearance, position and velocity.
     /// space.
     /// </para>
     /// </summary>
@@ -62,7 +62,7 @@ namespace Unit04.Game.Casting
         }
 
         /// <summary>
-        /// Gets the actor's current velocity.
+        /// Gets the actor's velocity.
         /// </summary>
         /// <returns>The velocity.</returns>
         public Point GetVelocity()

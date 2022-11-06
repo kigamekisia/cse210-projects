@@ -1,7 +1,6 @@
 namespace Unit04.Game.Casting
 {
     /// <summary>
-    /// <para>An item of cultural or historical interest.</para>
     /// <para>
     /// The responsibility of an Artifact is to provide a score about itself.
     /// </para>

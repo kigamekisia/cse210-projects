@@ -4,9 +4,7 @@ using System.Collections.Generic;
 namespace Unit04.Game.Casting
 {
     /// <summary>
-    /// <para>A color.</para>
-    /// <para>The responsibility of Color is to hold and provide information about itself. Color has 
-    /// a few convenience methods for comparing and converting them.
+    /// <para>The responsibility of Color is to hold and provide information about itself.
     /// </para>
     /// </summary>
     public class Color

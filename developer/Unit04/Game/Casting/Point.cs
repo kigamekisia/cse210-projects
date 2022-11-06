@@ -1,10 +1,8 @@
 namespace Unit04.Game.Casting
 {
     /// <summary>
-    /// <para>A distance from a relative origin (0, 0).</para>
     /// <para>
-    /// The responsibility of Point is to hold and provide information about itself. Point has a few 
-    /// convenience methods for adding, scaling, and comparing them.
+    /// The responsibility of Point is to hold and provide information about itself.
     /// </para>
     /// </summary>
     public class Point

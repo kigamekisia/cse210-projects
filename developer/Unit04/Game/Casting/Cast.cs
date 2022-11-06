@@ -4,7 +4,6 @@ using System.Collections.Generic;
 namespace Unit04.Game.Casting
 {
     /// <summary>
-    /// <para>A collection of actors.</para>
     /// <para>
     /// The responsibility of a cast is to keep track of a collection of actors. It has methods for 
     /// adding, removing and getting them by a group name.

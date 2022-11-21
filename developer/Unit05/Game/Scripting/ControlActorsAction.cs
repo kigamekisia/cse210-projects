@@ -1,85 +1,90 @@
 using Unit05.Game.Casting;
 using Unit05.Game.Services;
+using System.Collections.Generic;
+using Unit05.Game.Scripting;
 
 
 namespace Unit05.Game.Scripting
 {
     /// <summary>
-    /// <para>An input action that controls the cycler.</para>
+    /// <para>An input action that controls the cycle.</para>
     /// <para>
-    /// The responsibility of ControlActorsAction is to get the direction and move the cycler's head.
+    /// The responsibility of ControlActorsAction is to get the direction and move the cycle's head.
     /// </para>
     /// </summary>
     public class ControlActorsAction : Action
     {
-        private KeyboardService keyboardService;
-        private Point p1Direction = new Point(Constants.CELL_SIZE, 0);
-        private Point p2Direction = new Point(Constants.CELL_SIZE, 0);
+        private KeyboardService _keyboardService;
+        private Point _direction1 = new Point(Constants.CELL_SIZE, 0);
+        private Point _direction2 = new Point(Constants.CELL_SIZE, 0);
 
         /// <summary>
         /// Constructs a new instance of ControlActorsAction using the given KeyboardService.
         /// </summary>
         public ControlActorsAction(KeyboardService keyboardService)
         {
-            this.keyboardService = keyboardService;
+            this._keyboardService = keyboardService;
         }
 
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
+
             // left
-            if (keyboardService.IsKeyDown("a"))
+            if (_keyboardService.IsKeyDown("a"))
             {
-                p1Direction = new Point(-Constants.CELL_SIZE, 0);
+                _direction1 = new Point(-Constants.CELL_SIZE, 0);
             }
 
             // right
-            if (keyboardService.IsKeyDown("d"))
+            if (_keyboardService.IsKeyDown("d"))
             {
-                p1Direction = new Point(Constants.CELL_SIZE, 0);
+                _direction1 = new Point(Constants.CELL_SIZE, 0);
             }
 
             // up
-            if (keyboardService.IsKeyDown("w"))
+            if (_keyboardService.IsKeyDown("w"))
             {
-                p1Direction = new Point(0, -Constants.CELL_SIZE);
+                _direction1 = new Point(0, -Constants.CELL_SIZE);
             }
 
             // down
-            if (keyboardService.IsKeyDown("s"))
+            if (_keyboardService.IsKeyDown("s"))
             {
-                p1Direction = new Point(0, Constants.CELL_SIZE);
+                _direction1 = new Point(0, Constants.CELL_SIZE);
             }
 
-            Cycler player1 = (Cycler)cast.GetFirstActor("cycler");
-            player1.TurnHead(p1Direction);
+            Cycle cycle1 = (Cycle)cast.GetFirstActor("cycles");
+            cycle1.TurnHead(_direction1);
 
             // left
-            if (keyboardService.IsKeyDown("j"))
+            if (_keyboardService.IsKeyDown("j"))
             {
-                p2Direction = new Point(-Constants.CELL_SIZE, 0);
+                _direction2 = new Point(-Constants.CELL_SIZE, 0);
             }
 
             // right
-            if (keyboardService.IsKeyDown("l"))
+            if (_keyboardService.IsKeyDown("l"))
             {
-                p2Direction = new Point(Constants.CELL_SIZE, 0);
+                _direction2 = new Point(Constants.CELL_SIZE, 0);
             }
 
             // up
-            if (keyboardService.IsKeyDown("i"))
+            if (_keyboardService.IsKeyDown("i"))
             {
-                p2Direction = new Point(0, -Constants.CELL_SIZE);
+                _direction2 = new Point(0, -Constants.CELL_SIZE);
             }
 
             // down
-            if (keyboardService.IsKeyDown("k"))
+            if (_keyboardService.IsKeyDown("k"))
             {
-                p2Direction = new Point(0, Constants.CELL_SIZE);
+                _direction2 = new Point(0, Constants.CELL_SIZE);
             }
-            
-            Cycler player2 = (Cycler)cast.GetLastActor("cycler");
-            player2.TurnHead(p2Direction);
+
+            List<Actor> cycles = cast.GetActors("cycles");
+            Cycle cycle2 = (Cycle)cycles[1];
+
+            cycle2.TurnHead(_direction2);
         }
     }
 }

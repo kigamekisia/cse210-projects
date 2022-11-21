@@ -3,10 +3,6 @@ using Unit05.Game.Directing;
 using Unit05.Game.Scripting;
 using Unit05.Game.Services;
 using Unit05.Game;
-using System;
-using System.Collections.Generic;
-
-
 
 
 namespace Unit05
@@ -25,21 +21,13 @@ namespace Unit05
             // create the cast
             Cast cast = new Cast();
 
-            Cycler player1 = new Cycler((int)(Constants.MAX_X / 2), Constants.MAX_Y / 3, Constants.GREEN);
-            Cycler player2 = new Cycler((int)(Constants.MAX_X / 2), (int)(Constants.MAX_Y / 1.5), Constants.BLUE);
-            
-            Score score1 = new Score("Player One");
-            score1.SetPosition(new Point(0,0));
+            Point point1 = new Point(Constants.MAX_X / 4, Constants.MAX_Y / 2);
+            Point point2 = new Point(3 * Constants.MAX_X / 4, Constants.MAX_Y / 2);
 
-            Score score2 = new Score("Player Two");
-            score2.SetPosition(new Point(Constants.MAX_X - 140, 0));
-            
-            
-            cast.AddActor("cycler", player2);
-            cast.AddActor("cycler", player1);
-            cast.AddActor("score", score1);
-            cast.AddActor("score", score2);
-
+            Cycle cycle1 = new Cycle(point1, Constants.RED);
+            cast.AddActor("cycles", cycle1);
+            Cycle cycle2 = new Cycle(point2, Constants.GREEN);
+            cast.AddActor("cycles", cycle2);
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();

@@ -11,35 +11,33 @@ namespace Unit05.Game.Scripting
     /// </summary>
     public class DrawActorsAction : Action
     {
-        private VideoService videoService;
+        private VideoService _videoService;
 
         /// <summary>
         /// Constructs a new instance of ControlActorsAction using the given KeyboardService.
         /// </summary>
         public DrawActorsAction(VideoService videoService)
         {
-            this.videoService = videoService;
+            this._videoService = videoService;
         }
 
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            Cycler player1 = (Cycler)cast.GetFirstActor("cycler");
-            List<Actor> p1Segments = player1.GetSegments();
-            Cycler player2 = (Cycler)cast.GetLastActor("cycler");
-            List<Actor> p2Segments = player2.GetSegments();
-            Actor score1 = cast.GetFirstActor("score");
-            Actor score2 = cast.GetLastActor("score");
+            _videoService.ClearBuffer();
+
+            foreach (Cycle cycle in cast.GetActors("cycles"))
+            {
+                List<Actor> segments = cycle.GetSegments();
+                _videoService.DrawActors(segments);
+            }
+            
+            Actor score = cast.GetFirstActor("score");
             List<Actor> messages = cast.GetActors("messages");
             
-            videoService.ClearBuffer();
-            videoService.DrawActors(p1Segments);
-            videoService.DrawActors(p2Segments);
-            videoService.DrawActor(score1); 
-            videoService.DrawActor(score2);
-
-            videoService.DrawActors(messages);
-            videoService.FlushBuffer();
+            //_videoService.DrawActor(score);
+            _videoService.DrawActors(messages);
+            _videoService.FlushBuffer();
         }
     }
 }
